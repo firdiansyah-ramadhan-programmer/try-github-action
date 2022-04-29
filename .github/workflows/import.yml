@@ -24,6 +24,10 @@ jobs:
         run: (if [ -d "Builds" ]; then rm -rf ./Builds/*; else mkdir ./Builds; fi);
       
       - uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           buildMethod: SuperUnityBuild.BuildTool.BuildCLI.PerformBuild
       
