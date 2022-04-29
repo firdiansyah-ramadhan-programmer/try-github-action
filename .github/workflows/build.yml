@@ -28,7 +28,7 @@ jobs:
       
       # Runs a set of commands using the runners shell
       - name: Remove Cache Build
-        run: echo yes
+        run: if exist Builds rmdir /q /s Builds
       
       - name: Build Solution
         run: |      
