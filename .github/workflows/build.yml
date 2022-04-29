@@ -20,7 +20,7 @@ jobs:
       
     defaults:
       run:
-        shell: bash
+        shell: cmd
         
     steps:
       - name: Checkout
@@ -28,7 +28,7 @@ jobs:
       
       # Runs a set of commands using the runners shell
       - name: Remove Cache Build
-        run: ls
+        run: echo yes
       
       - name: Build Solution
         run: |      
