@@ -29,9 +29,14 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Remove Cache Build
         run: (if [ -d "Builds" ]; then rm -rf ./Builds/*; else mkdir ./Builds; fi);
-            
+      
+      - name: Build Solution
+        run: |      
+            "C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Unity.exe" -xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -projectPath='.' -quit -batchmode -nographics -executeMethod UnityEditor.SyncVS.SyncSolution
+      
       - name: Run a Build
-        run: "C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Unity.exe" -xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -projectPath='.' -quit -batchmode -nographics -executeMethod SuperUnityBuild.BuildTool.BuildCLI.PerformBuild
+        run: |
+            "C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Unity.exe" -xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -projectPath='.' -quit -batchmode -nographics -executeMethod SuperUnityBuild.BuildTool.BuildCLI.PerformBuild
         
       - name: Export
         uses: actions/upload-artifact@v3
