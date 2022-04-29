@@ -148,11 +148,11 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.DefaultCompany.SampleBuildAutomation
   buildNumber:
-    Standalone: 14
-    iPhone: 14
+    Standalone: 16
+    iPhone: 16
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 15
+  AndroidBundleVersionCode: 17
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
