@@ -26,6 +26,8 @@ jobs:
             
       - name: Run a Build
         run: Start-Process -NoNewWindow -FilePath "C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Unity.exe" -ArgumentList "-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -projectPath='.' -quit -batchmode -nographics -executeMethod SuperUnityBuild.BuildTool.BuildCLI.PerformBuild"
+        strategy:
+          fail-fast: false
         
       - name: Export
         uses: actions/upload-artifact@v3

@@ -21,3 +21,5 @@ jobs:
             
       - name: Run a Import
         run: Start-Process -NoNewWindow -FilePath "C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Unity.exe" -ArgumentList "-quit -batchmode -nographics -projectPath='.' -buildWindowsPlayer 'Builds/result.exe'"
+        strategy:
+          fail-fast: false
