@@ -14,8 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run a Import
+      - name: Remove Cache Build
         run: |
             $Folder = '.\Builds'
             If(Test-Path -Path $Folder) {Remove-Item –path $Folder -include * –recurse}
-            Start-Process -NoNewWindow -FilePath "C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Unity.exe" -ArgumentList "-quit -batchmode -nographics -projectpath '.' -buildWindowsPlayer 'Builds/result.exe'"
+            
+      - name: Run a Import
+        run: Start-Process -NoNewWindow -FilePath "C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Unity.exe" -ArgumentList "-quit -batchmode -nographics -projectpath '.' -buildWindowsPlayer 'Builds/result.exe'"
