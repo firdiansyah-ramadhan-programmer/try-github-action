@@ -29,6 +29,9 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
+          unityVersion: 2020.3.3f1
+          targetPlatform: Android
+          allowDirtyBuild: true
           buildMethod: SuperUnityBuild.BuildTool.BuildCLI.PerformBuild
       
       - name: Build Solution
