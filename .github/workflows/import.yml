@@ -24,10 +24,18 @@ jobs:
         run: (if [ -d "Builds" ]; then rm -rf ./Builds/*; else mkdir ./Builds; fi);
       
       - name: Build Solution
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         run: |      
             /opt/unity/Editor/Unity -xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -projectPath='.' -quit -batchmode -nographics -executeMethod UnityEditor.SyncVS.SyncSolution
       
       - name: Run a Build
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         run: |
             /opt/unity/Editor/Unity -xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -projectPath='.' -quit -batchmode -nographics -executeMethod SuperUnityBuild.BuildTool.BuildCLI.PerformBuild
         
