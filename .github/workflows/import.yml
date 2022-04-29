@@ -9,6 +9,8 @@ jobs:
   Import:
     # The type of runner that the job will run on
     runs-on: Windows
+    strategy:
+      fail-fast: false
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
@@ -21,5 +23,3 @@ jobs:
             
       - name: Run a Import
         run: Start-Process -NoNewWindow -FilePath "C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Unity.exe" -ArgumentList "-quit -batchmode -nographics -projectPath='.' -buildWindowsPlayer 'Builds/result.exe'"
-        strategy:
-          fail-fast: false
