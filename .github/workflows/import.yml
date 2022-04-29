@@ -23,6 +23,10 @@ jobs:
       - name: Remove Cache Build
         run: (if [ -d "Builds" ]; then rm -rf ./Builds/*; else mkdir ./Builds; fi);
       
+      - uses: game-ci/unity-builder@v2
+        with:
+          buildMethod: SuperUnityBuild.BuildTool.BuildCLI.PerformBuild
+      
       - name: Build Solution
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
