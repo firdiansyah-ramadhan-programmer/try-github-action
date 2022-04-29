@@ -25,8 +25,8 @@ public static class BuildConstants
         None,
     }
 
-    public static readonly System.DateTime buildDate = new System.DateTime(637868204905290837);
-    public const string version = "1.0.0.1";
+    public static readonly System.DateTime buildDate = new System.DateTime(637868248938054529);
+    public const string version = "";
     public const ReleaseType releaseType = ReleaseType.Built_Automation;
     public const Platform platform = Platform.Android;
     public const Architecture architecture = Architecture.Android;
