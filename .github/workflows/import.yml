@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run a Import
-        run: $Folder = '.\Builds'
-        run: If(Test-Path -Path $Folder) {Remove-Item –path $Folder -include * –recurse}
-        run: Start-Process -NoNewWindow -FilePath "C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Unity.exe" -ArgumentList "-quit -batchmode -nographics -projectpath '.' -buildWindowsPlayer 'Builds/result.exe'"
+        run: |
+            $Folder = '.\Builds'
+            If(Test-Path -Path $Folder) {Remove-Item –path $Folder -include * –recurse}
+            Start-Process -NoNewWindow -FilePath "C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Unity.exe" -ArgumentList "-quit -batchmode -nographics -projectpath '.' -buildWindowsPlayer 'Builds/result.exe'"
